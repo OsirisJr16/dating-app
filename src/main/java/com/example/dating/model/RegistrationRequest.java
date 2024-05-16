@@ -9,11 +9,13 @@ public class RegistrationRequest {
     private User user ;
     private List<String> interests ;
     private Location location ;
+    private String profilePictureUrl ;
 
-    public RegistrationRequest(User user, List<String> interests, Location location) {
+    public RegistrationRequest(User user, List<String> interests, Location location , String profilePictureUrl) {
         this.user = user;
         this.interests = interests;
         this.location = location;
+        this.profilePictureUrl = profilePictureUrl;
     }
 
     public User getUser() {
@@ -38,5 +40,11 @@ public class RegistrationRequest {
 
     public void setLocation(Location location) {
         this.location = location;
+    }
+    public String getProfilePictureUrl() {
+        return profilePictureUrl;
+    }
+    public void setProfilePictureUrl(String profilePictureUrl) {
+        this.profilePictureUrl = profilePictureUrl;
     }
 }
