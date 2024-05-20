@@ -10,6 +10,7 @@ public class ProfileDTO {
     private String gender;
     private LocalDate birthday ;
     private String bio ;
+    private String profilePicture;
     private List<String> interests ;
     private LocationDTO location ;
 
@@ -21,12 +22,13 @@ public class ProfileDTO {
         this.id = id;
     }
 
-    public ProfileDTO(String username, String email, String gender, LocalDate birthday, String bio, List<String> interests, LocationDTO location) {
+    public ProfileDTO(String username, String email, String gender, LocalDate birthday, String bio,String profilePicture,List<String> interests, LocationDTO location) {
         this.username = username;
         this.email = email;
         this.gender = gender;
         this.birthday = birthday;
         this.bio = bio;
+        this.profilePicture = profilePicture;
         this.interests = interests;
         this.location = location;
     }
@@ -73,6 +75,10 @@ public class ProfileDTO {
     public void setBio(String bio) {
         this.bio = bio;
     }
+
+    public String getProfilePicture() {return profilePicture;}
+
+    public void setProfilePicture(String profilePicture) {this.profilePicture = profilePicture;}
 
     public List<String> getInterests() {
         return interests;

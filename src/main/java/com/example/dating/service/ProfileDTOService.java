@@ -16,6 +16,7 @@ public class ProfileDTOService {
         profileDTO.setEmail(user.getEmail());
         profileDTO.setBio(user.getBio());
         profileDTO.setBirthday(user.getBirthday());
+        profileDTO.setProfilePicture(user.getProfilePicture());
         profileDTO.setGender(user.getGender());
         if (user.getLocation() != null) {
             LocationDTO locationDTO = new LocationDTO();

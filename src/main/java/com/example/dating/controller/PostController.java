@@ -29,7 +29,7 @@ public class PostController {
         try {
             Files.createDirectories(path.getParent());
             Files.copy(file.getInputStream(), path);
-            String fileUrl = "/profiles/" + fileName;
+            String fileUrl = fileName;
             Map<String, String> response = new HashMap<>();
             response.put("url", fileUrl);
 
