@@ -95,6 +95,7 @@ public class MatchController {
         }
         double currentUserLongitude = currentUser.getLocation().getLongitude();
         double currentUserLatitude = currentUser.getLocation().getLatitude();
+
         double otherUserLongitude = otherUser.getLocation().getLongitude();
         double otherUserLatitude = otherUser.getLocation().getLatitude();
         double distance = Math.sqrt(Math.pow(currentUserLatitude - otherUserLatitude, 2)
