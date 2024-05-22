@@ -1,9 +1,12 @@
 package com.example.dating.controller;
+import com.example.dating.DTO.MatchDTO;
+import com.example.dating.DTO.MatchedByDTO;
 import com.example.dating.DTO.ProfileDTO;
 import com.example.dating.entity.*;
 import com.example.dating.model.MatchRequest;
 import com.example.dating.repository.MatchRepository;
 import com.example.dating.repository.UserRepository;
+import com.example.dating.service.MatchService;
 import com.example.dating.service.ProfileDTOService ;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,10 +23,14 @@ import java.util.stream.Collectors;
 public class MatchController {
     private final UserRepository userRepository;
     private final MatchRepository matchRepository ;
-    public MatchController(UserRepository userRepository , MatchRepository matchRepository) {
+    private final MatchService matchService ;
+
+    public MatchController(UserRepository userRepository , MatchRepository matchRepository , MatchService matchService) {
         this.userRepository = userRepository;
         this.matchRepository = matchRepository;
+        this.matchService = matchService;
     }
+
     @PostMapping
     public ResponseEntity<String>createMatch(@RequestBody MatchRequest matchRequest){
         User user1 = userRepository.findByUserID(matchRequest.getUser1ID()) ;
@@ -67,6 +74,24 @@ public class MatchController {
             return ResponseEntity.ok(oppositeGenderUsers) ;
         }
         return ResponseEntity.ok(matches);
+    }
+
+    @GetMapping("/user/{userId}/matches")
+    public ResponseEntity<List<MatchDTO>> getMatchesByUserID(@PathVariable Long userId) {
+        List<MatchDTO> matches = matchService.getMatchesByUser(userId);
+        if (matches.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(matches) ;
+    }
+
+    @GetMapping("user/{userId}/matchedBy")
+    public ResponseEntity<List<MatchedByDTO>> getMatchesByMatchedUser(@PathVariable Long userId){
+        List<MatchedByDTO> matches = matchService.getMatchesMatchedByUser(userId) ;
+        if(matches.isEmpty()){
+            return  ResponseEntity.noContent().build();
+        }
+        return  ResponseEntity.ok(matches) ;
     }
 
     private String getOppositeGender(String gender) {
