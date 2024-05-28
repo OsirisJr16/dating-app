@@ -46,7 +46,7 @@ public class MatchService {
     private MatchedByDTO convertMatchedByToDTO(Match match){
         MatchedByDTO dto = new MatchedByDTO();
         dto.setMatchId(match.getMatchID());
-        dto.setUser1(convertoUserDTO(match.getUser1()));
+        dto.setUser(convertoUserDTO(match.getUser1()));
         return  dto ;
     }
     private UserDTO convertoUserDTO(User user){

@@ -21,9 +21,6 @@ public class Message {
     @Column(name = "timestamp",nullable = false)
     private LocalDateTime timestamp ;
 
-    public Message() {
-
-    }
     public Message(Long messageID, User sender, User receiver, String message, LocalDateTime timestamp) {
         this.messageID = messageID;
         this.sender = sender;
@@ -31,7 +28,9 @@ public class Message {
         this.message = message;
         this.timestamp = timestamp;
     }
+    public Message() {
 
+    }
     public Long getMessageID() {
         return messageID;
     }

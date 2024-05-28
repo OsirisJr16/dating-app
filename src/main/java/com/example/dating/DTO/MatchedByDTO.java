@@ -2,11 +2,11 @@ package com.example.dating.DTO;
 
 public class MatchedByDTO {
     private long matchId;
-    private UserDTO user1 ;
+    private UserDTO user ;
 
-    public MatchedByDTO(long matchId, UserDTO user1) {
+    public MatchedByDTO(long matchId, UserDTO user) {
         this.matchId = matchId;
-        this.user1 = user1;
+        this.user = user;
     }
     public MatchedByDTO(){
 
@@ -19,12 +19,12 @@ public class MatchedByDTO {
         this.matchId = matchId;
     }
 
-    public UserDTO getUser1() {
-        return user1;
+    public UserDTO getUser() {
+        return user;
     }
 
-    public void setUser1(UserDTO user1) {
-        this.user1 = user1;
+    public void setUser(UserDTO user) {
+        this.user = user;
     }
 
 }

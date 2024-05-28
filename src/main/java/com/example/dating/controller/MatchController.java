@@ -95,7 +95,6 @@ public class MatchController {
     }
 
     private String getOppositeGender(String gender) {
-
         return gender.equals("male") ? "female" : "male";
     }
 
